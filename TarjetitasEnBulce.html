@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Proyecto de Flipcards</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12" style="background-color: bisque;">
+
+                <div style="text-align: center;">
+                    <h1>Conceptos Fundamentales</h1>
+                </div>
+
+                <div class="Contenedor_FlipCards">
+                    <div class="Flipcard">
+                        <div class="Flipcard__face Flipcard__face--front">
+                            <p>Diferentes Estilos de programación</p>
+                        </div>
+                        <div class="Flipcard__face Flipcard__face--back">
+                            <div id="buttons-container-1"></div>
+                        </div>
+                    </div>
+
+                    <div class="Flipcard">
+                        <div class="Flipcard__face Flipcard__face--front">
+                            <p>Analizando diferentes estilos de programación</p>
+                        </div>
+                        <div class="Flipcard__face Flipcard__face--back">
+                            <div id="buttons-container-2"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal-default" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modalLabel">Concepto</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="Contenedor_FlipCards"></div>
+                    <div class="Flipcard">
+                        <div class="Flipcard__face Flipcard__face--front">
+                            <h5 id="concept-definition">Definición del concepto</h5>
+                        </div>
+                        <div class="Flipcard__face Flipcard__face--back">
+                            <p id="concept-example">Ejemplo del concepto</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Define los subtemas y sus contenedores
+        const subtemas = [
+            { subtema: "Diferentes Estilos de programación", containerId: "buttons-container-1" },
+            { subtema: "Analizando diferentes estilos de programación", containerId: "buttons-container-2" }
+        ];
+
+        // Función para cargar los datos de un subtema
+        const cargarDatos = (subtema, containerId) => {
+            fetch(`http://localhost/Flipcards/conceptos.php?subtema=${encodeURIComponent(subtema)}`)
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById(containerId);
+
+                    // Genera los botones dinámicamente
+                    data.forEach((item, index) => {
+                        const button = document.createElement('button');
+                        button.className = 'btn d-block mb-2';
+                        button.textContent = item.concepto;
+                        button.dataset.index = index;
+                        button.dataset.bsToggle = 'modal';
+                        button.dataset.bsTarget = '#modal-default';
+                        container.appendChild(button);
+
+                        // Asociar datos al botón
+                        button.addEventListener('click', () => {
+                            document.getElementById('modalLabel').textContent = item.concepto;
+                            document.getElementById('concept-definition').textContent = item.definicion;
+                            document.getElementById('concept-example').textContent = item.ejemplo;
+                        });
+                    });
+                })
+                .catch(error => console.error(`Error al cargar los datos del subtema "${subtema}":`, error));
+        };
+
+        // Carga los datos para cada subtema
+        subtemas.forEach(({ subtema, containerId }) => cargarDatos(subtema, containerId));
+    });
+</script>
+
+    
+</body>
+</html>
+
+
+
+
+<!-- 
+1 Conceptos Fundamentales.
+    1.1. Diferentes Estilos de programación. 
+    1.2. Analizando diferentes de estilos de programación
+        1.2.1 Evaluación de expresiones. 
+        1.2.2 Tipos de datos.
+        1.2.3 Disciplina tipos.
+        1.2.4 Funciones.
+2 Modelo de Programación Funcional.
+    2.1 Introducción al modelo de programación funcional.
+    2.1. El tipo de datos.
+    2.2. Funciones.
+    2.3. Intervalos.
+    2.4. Operadores.
+    2.5. Aplicaciones de las listas. 2.6. Árboles.
+    2.7. Evaluación perezosa.
+3 Programación lógica.
+    3.1. Repaso de la lógica de primer orden.
+    3.2. Unificación y resolución.
+    3.3. Cláusulas de Horn, resolución SLD.
+    3.4. Programación lógica con cláusulas de Horn.
+4 Modelo de programación lógica.
+    4.1 Introducción al modelo de programación lógica.
+    4.2. Semántica de los programas lógicos.
+    4.3. Representación clausada del conocimiento. 4.4. Consulta de una base de cláusulas.
+    4.5. Espacios de búsqueda.
+    4.6. Programación lógica con números, listas y
+    árboles.
+    4.7. Control de búsqueda en programas lógicos 4.8. Manipulación de términos.
+    4.9 Predicados mitológicos.
+
+BASE DE DATOS FUNCIONAL
+CUBRIR TODOS LOS TEMAS DEL TEMARIO
+RESPONSIVIDAD DEL PROYECTO 
+CONTENIDO CLARO 
+ORTOGRAFIA 
+BORDER DE TARJETAS REDONDEADOS 
+USO DE MODALES (en algun caso) 
+TRAZABILIDAD (tema, subtema, concepto) 
+COLORES DE TITULOS, SUBTITULOS Y TEXTOS DISTINTO ENTRE SI 
+CODIGOS HTML, CSS, JS Y PHP (u otros) SEGMENTADOS ENTRE SI
+TEMA OSCURO DISPONIBLE
+TEMA CLARO DISPONIBLE
+BARRA DE BUSQUEDA
+CARAS DE LAS FLIPCARDS DISTINGIBLES ENTRE SUS COLORES
+USO DE FUENTES ALTERNATIVAS EN TEXTOS (al menos 1)
+USO DE ICONOGRAFIA (en alguna aparte del proyecto
+
+-->

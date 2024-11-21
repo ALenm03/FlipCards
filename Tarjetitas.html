@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilos.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
     <title>Proyecto de flipcards</title>
 </head>
 <body>
+    <div class="container">
         <div class="row">
             <div class="col-12" style="background-color: bisque;">
 
@@ -22,10 +23,10 @@
                             <p>Diferentes Estilos de programación</p>
                         </div>
                         <div class="Flipcard__face Flipcard__face--back">
-                            <button class="btn btn-danger"> concepto x</button>
-                            <button class="btn btn-danger"> concepto x</button>
-                            <button class="btn btn-danger"> concepto x</button>
-                            <button class="btn btn-danger"> concepto x</button>
+                            <button class="btn d-block mb-2" data-bs-toggle="modal" data-bs-target="#modal-default"> concepto x</button>
+                            <button class="btn d-block mb-2" data-bs-toggle="modal" data-bs-target="#modal-default"> concepto x</button>
+                            <button class="btn d-block mb-2" data-bs-toggle="modal" data-bs-target="#modal-default"> concepto x</button>
+                            <button class="btn d-block mb-2" data-bs-toggle="modal" data-bs-target="#modal-default"> concepto x</button>
                         </div>
                     </div>
                     <div class="Flipcard">
@@ -33,10 +34,10 @@
                             <p>Analizando Diferentes Estilos de Programación</p>
                         </div>
                         <div class="Flipcard__face Flipcard__face--back">
-                            <button class="btn btn-danger"> concepto x</button>
-                            <button class="btn btn-danger"> concepto x</button>
-                            <button class="btn btn-danger"> concepto x</button>
-                            <button class="btn btn-danger"> concepto x</button>
+                            <button class="btn d-block mb-2"> concepto x</button>
+                            <button class="btn d-block mb-2"> concepto x</button>
+                            <button class="btn d-block mb-2"> concepto x</button>
+                            <button class="btn d-block mb-2"> concepto x</button>
                         </div>
                     </div>
                     <div class="Flipcard">
@@ -44,10 +45,10 @@
                             <p>Evaluacion de expresiones</p>
                         </div>
                         <div class="Flipcard__face Flipcard__face--back">
-                            <button class="btn btn-danger"> concepto x</button>
-                            <button class="btn btn-danger"> concepto x</button>
-                            <button class="btn btn-danger"> concepto x</button>
-                            <button class="btn btn-danger"> concepto x</button>
+                            <button class="btn d-block mb-2"> concepto x</button>
+                            <button class="btn d-block mb-2"> concepto x</button>
+                            <button class="btn d-block mb-2"> concepto x</button>
+                            <button class="btn d-block mb-2"> concepto x</button>
                         </div>
                     </div>
                     <div class="Flipcard">
@@ -55,10 +56,10 @@
                             <p>Tipos de Datos</p>
                         </div>
                         <div class="Flipcard__face Flipcard__face--back">
-                            <button class="btn btn-danger"> concepto x</button>
-                            <button class="btn btn-danger"> concepto x</button>
-                            <button class="btn btn-danger"> concepto x</button>
-                            <button class="btn btn-danger"> concepto x</button>
+                            <button class="btn d-block mb-2"> concepto x</button>
+                            <button class="btn d-block mb-2"> concepto x</button>
+                            <button class="btn d-block mb-2"> concepto x</button>
+                            <button class="btn d-block mb-2"> concepto x</button>
                         </div>
                     </div>
                     <div class="Flipcard">
@@ -66,10 +67,10 @@
                             <p>Disciplina de Tipos</p>
                         </div>
                         <div class="Flipcard__face Flipcard__face--back">
-                            <button class="btn btn-danger"> concepto x</button>
-                            <button class="btn btn-danger"> concepto x</button>
-                            <button class="btn btn-danger"> concepto x</button>
-                            <button class="btn btn-danger"> concepto x</button>
+                            <button class="btn d-block mb-2"> concepto x</button>
+                            <button class="btn d-block mb-2"> concepto x</button>
+                            <button class="btn d-block mb-2"> concepto x</button>
+                            <button class="btn d-block mb-2"> concepto x</button>
                         </div>
                     </div>
                     <div class="Flipcard">
@@ -77,15 +78,89 @@
                             <p>Funciones</p>
                         </div>
                         <div class="Flipcard__face Flipcard__face--back">
-                            <button class="btn btn-danger"> concepto x</button>
-                            <button class="btn btn-danger"> concepto x</button>
-                            <button class="btn btn-danger"> concepto x</button>
-                            <button class="btn btn-danger"> concepto x</button>
+                            <button class="btn d-block mb-2"> concepto x</button>
+                            <button class="btn d-block mb-2"> concepto x</button>
+                            <button class="btn d-block mb-2"> concepto x</button>
+                            <button class="btn d-block mb-2"> concepto x</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
+    <div class="modal fade" id="modal-default">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header encabezado-menu-registro">
+                    <h4 class="modal-title">ConceptoX</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="Contenedor_FlipCards"></div>
+                        <div class="Flipcard">
+                            <div class="Flipcard__face Flipcard__face--front">
+                                <p>Definicion del concepto</p>
+                            </div>
+                            <div class="Flipcard__face Flipcard__face--back">
+                                <p>Ejemplo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>         
+            </div>
+        </div>
+    </div>
+    
 </body>
 </html>
+
+
+<!-- 
+1 Conceptos Fundamentales.
+    1.1. Diferentes Estilos de programación. 
+    1.2.Analizando diferentes de estilos de programación
+        1.2.1 Evaluación de expresiones. 
+        1.2.2 Tipos de datos.
+        1.2.3 Disciplina tipos.
+        1.2.4 Funciones.
+2 Modelo de Programación Funcional.
+    2.1 Introducción al modelo de programación funcional.
+    2.1. El tipo de datos.
+    2.2. Funciones.
+    2.3. Intervalos.
+    2.4. Operadores.
+    2.5. Aplicaciones de las listas. 2.6. Árboles.
+    2.7. Evaluación perezosa.
+3 Programación lógica.
+    3.1. Repaso de la lógica de primer orden.
+    3.2. Unificación y resolución.
+    3.3. Cláusulas de Horn, resolución SLD.
+    3.4. Programación lógica con cláusulas de Horn.
+4 Modelo de programación lógica.
+    4.1 Introducción al modelo de programación lógica.
+    4.2. Semántica de los programas lógicos.
+    4.3. Representación clausada del conocimiento. 4.4. Consulta de una base de cláusulas.
+    4.5. Espacios de búsqueda.
+    4.6. Programación lógica con números, listas y
+    árboles.
+    4.7. Control de búsqueda en programas lógicos 4.8. Manipulación de términos.
+    4.9 Predicados mitológicos.
+
+BASE DE DATOS FUNCIONAL
+CUBRIR TODOS LOS TEMAS DEL TEMARIO
+RESPONSIVIDAD DEL PROYECTO 
+CONTENIDO CLARO 
+ORTOGRAFIA 
+BORDER DE TARJETAS REDONDEADOS 
+USO DE MODALES (en algun caso) 
+TRAZABILIDAD (tema, subtema, concepto) 
+COLORES DE TITULOS, SUBTITULOS Y TEXTOS DISTINTO ENTRE SI 
+CODIGOS HTML, CSS, JS Y PHP (u otros) SEGMENTADOS ENTRE SI
+TEMA OSCURO DISPONIBLE
+TEMA CLARO DISPONIBLE
+BARRA DE BUSQUEDA
+CARAS DE LAS FLIPCARDS DISTINGIBLES ENTRE SUS COLORES
+USO DE FUENTES ALTERNATIVAS EN TEXTOS (al menos 1)
+USO DE ICONOGRAFIA (en alguna aparte del proyecto
+
+-->

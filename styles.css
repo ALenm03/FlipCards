@@ -5,7 +5,6 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: black;
 }
 
 p {
@@ -14,6 +13,7 @@ p {
     margin-bottom: 20px;
 }
 
+/*Estilos de las Flipcards*/
 .Contenedor_FlipCards {
     width: 100%;
     display: flex;
@@ -57,4 +57,16 @@ p {
 .Flipcard__face--back {
     transform: rotateY(0.5turn);
     background-color: cornflowerblue;
+    display: flex;
+    flex-direction: column; /* Coloca los elementos en una columna */
+    justify-content: center; /* Opcional: Centra verticalmente */
+    align-items: center; /* Opcional: Centra horizontalmente */
+}
+
+.Flipcard__face--back button {
+    display: block;
+    width: 90%; /* Ajusta el ancho al 90% o 100% según el diseño deseado */
+    margin: 0 auto 10px auto; /* Centra los botones horizontalmente */
+    padding: 10px; /* Opcional: Mejora la accesibilidad */
+    background-color: wheat;
 }
