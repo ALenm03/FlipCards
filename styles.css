@@ -1,34 +1,59 @@
+/*header*/
+header{
+    background-color: black;
+}
+
+/*BODY*/
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    display: block; /* Cambia de flexbox a un flujo estándar */
     margin: 0;
+    padding-top: 70px; /* Reserva espacio para el header */
+    height: auto; /* Asegura que el contenido no se recorte */
+}
+
+/*Diferente color entre textos*/
+h2
+{
+    color: black;
+    margin-top: 70px;
+    margin-bottom: 10px;
+}
+h4 {
+    color: cyan;
 }
 
 p {
-    color: black;
+    color: white;
     font-size: 24px;
     margin-bottom: 20px;
 }
 
+/*MODAL*/
+#ventanaModal {
+    background-color: #212121;
+}
+#concept-definition{
+    color: cadetblue;
+}
+#concept-example{
+    color: darkorange;
+}
+
 /*Estilos de las Flipcards*/
 .Contenedor_FlipCards {
-    width: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap; /* Permite que las tarjetas pasen a la siguiente fila */
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+    gap: 20px; /* Espacio entre tarjetas */
 }
 
 .Flipcard {
-    position: relative;
-    width: 250px;
-    height: 400px;
+    flex: 0 1 240px; /* No crecer, encoger solo si es necesario, ancho base de 240px */
+    height: 300px; /* Mantén la altura fija */
     color: white;
     cursor: pointer;
     transition: 1s ease-in-out;
     transform-style: preserve-3d;
-    margin: 10px;
 }
 
 .Flipcard:hover {
@@ -49,14 +74,14 @@ p {
     text-align: center;
     padding: 10px; /* Para dar algo de espacio al texto */
     -webkit-box-reflect: below 0 linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.4));
-    background-color: blueviolet;
+    background-color: black;
     border-radius: 10px;
 
 }
 
 .Flipcard__face--back {
     transform: rotateY(0.5turn);
-    background-color: cornflowerblue;
+    background-color: gray;
     display: flex;
     flex-direction: column; /* Coloca los elementos en una columna */
     justify-content: center; /* Opcional: Centra verticalmente */
@@ -68,5 +93,78 @@ p {
     width: 90%; /* Ajusta el ancho al 90% o 100% según el diseño deseado */
     margin: 0 auto 10px auto; /* Centra los botones horizontalmente */
     padding: 10px; /* Opcional: Mejora la accesibilidad */
-    background-color: wheat;
+    background-color: rgba(0, 0, 0, 0.4);;
+    color: white;
+}
+.Flipcard__face--back button:hover {
+    background-color:black;
+}
+
+
+
+/*Estilos del modo oscuro*/
+
+/* Clase para el modo oscuro */
+.dark-mode {
+    background-color: #212121;
+    color: #ffffff;
+    transition: background-color 0.5s ease, color 0.5s ease; /* Transición suave */
+}
+
+/* FLIPCARDS */
+.dark-mode .Flipcard__face {
+    background-color: white;
+    transition: background-color 0.5s ease, color 0.5s ease; /* Transición suave */
+}
+.dark-mode .Flipcard__face--back {
+    background-color: black;
+}
+.dark-mode .Flipcard__face--back button {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+.dark-mode .Flipcard__face--back button:hover {
+    background-color: black;
+}
+
+/*MOdal*/
+.dark-mode #ventanaModal {
+    background-color: #212121;
+}
+.dark-mode #ventanaModal .Flipcard__face{
+    background-color: black;
+}
+.dark-mode #ventanaModal .Flipcard__face--back{
+    background-color: rgb(100, 100, 100);
+}
+
+
+/*TEXTOS*/
+.dark-mode h2 {
+    color: white;
+}
+.dark-mode p {
+    color: black;
+}
+
+.dark-mode #toggle-dark-mode {
+    color: #FFD700;
+}
+.dark-mode #toggle-dark-mode:hover {
+    color: white;
+}
+
+#toggle-dark-mode {
+    font-size: 24px; /* Tamaño del ícono */
+    cursor: pointer;
+    color: white;
+    display: flex; /* Asegura que el ícono se comporte como un elemento en línea */
+    align-items: center; /* Alineación vertical */
+    justify-content: center; /* Centrado en el espacio del ícono */
+    height: 45px; 
+    width: 45px; 
+}
+
+#toggle-dark-mode:hover {
+    transition: color 0.5s ease;
+    color: #FFD700; 
 }
