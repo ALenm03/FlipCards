@@ -48,8 +48,8 @@ p {
 }
 
 .Flipcard {
-    flex: 0 1 240px; /* No crecer, encoger solo si es necesario, ancho base de 240px */
-    height: 300px; /* Mantén la altura fija */
+    flex: 0 1 260px; /* No crecer, encoger solo si es necesario, ancho base de 240px */
+    height: 340px; /* Mantén la altura fija */
     color: white;
     cursor: pointer;
     transition: 1s ease-in-out;
